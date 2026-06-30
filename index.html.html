@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coronel Lino - Pré-candidato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-yellow: #FFD600;
+            --primary-blue: #0A1931;
+            --text-white: #FFFFFF;
+            --footer-bg: rgba(9, 20, 42, 0.85);
+            --icon-green: #008C4A;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            
+            /* Variáveis para proporção */
+            --container-padding: clamp(1rem, 5vw, 2rem);
+            --title-size: clamp(2.2rem, 8vw, 3.8rem);
+            --yellow-size: clamp(3.5rem, 13vw, 7rem);
+            --description-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            --btn-size: clamp(0.8rem, 2vw, 0.95rem);
+            --info-size: clamp(0.8rem, 2vw, 0.85rem);
+            --logo-height: clamp(50px, 10vw, 65px);
+            --icon-size: clamp(28px, 5vw, 32px);
+            --card-title: clamp(1rem, 3vw, 1.3rem);
+            --card-subtitle: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-white);
+            background-color: var(--primary-blue);
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
+        }
+
+        .background-container {
+            background-image: url('https://i.ibb.co/3YkvK7B4/Novo-Projeto-7.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Overlay para melhorar legibilidade */
+        .background-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 25, 49, 0.15) 0%,
+                rgba(10, 25, 49, 0.35) 100%
+            );
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: var(--container-padding);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: 100dvh;
+            position: relative;
+            z-index: 1;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        .top-header {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1.5rem);
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            text-align: left;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .top-header {
+                justify-content: flex-start;
+                text-align: left;
+            }
+        }
+
+        .top-logo {
+            height: var(--logo-height);
+            width: auto;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        /* Logo maior apenas no mobile */
+        @media (max-width: 767px) {
+            .top-logo {
+                height: clamp(55px, 12vw, 75px);
+            }
+        }
+
+        .header-text {
+            font-size: var(--btn-size);
+            font-weight: 700;
+            letter-spacing: 1px;
+            word-wrap: break-word;
+        }
+
+        .header-text .highlight {
+            color: var(--primary-yellow);
+        }
+
+        /* Main Content Wrapper */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width: 992px) {
+            .content-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: clamp(2rem, 5vw, 4rem);
+            }
+        }
+
+        /* Image Section */
+        .image-section {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            order: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @media (min-width: 992px) {
+            .image-section {
+                order: 2;
+                flex: 1;
+                max-width: 50%;
+                justify-content: flex-end;
+            }
+        }
+
+        .candidates-photo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+        }
+
+        @media (min-width: 992px) {
+            .candidates-photo {
+                max-width: 100%;
+                max-height: 75vh;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Text Section */
+        .text-section {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.2rem, 3vw, 1.8rem);
+            text-align: left;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 100%;
+            order: 2;
+            padding-left: clamp(0.5rem, 3vw, 0rem);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            margin-top: -0.5rem;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .text-section {
+                text-align: left;
+                align-items: flex-start;
+                max-width: 600px;
+                margin-top: -0.25rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .text-section {
+                order: 1;
+                flex: 1;
+                padding-bottom: 0;
+                margin-top: -0.5rem;
+            }
+        }
+
+        .main-title {
+            font-weight: 900;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.15rem, 0.8vw, 0.3rem);
+            line-height: 1;
+            word-wrap: break-word;
+        }
+
+        .main-title .white-text {
+            font-size: var(--title-size);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            display: block;
+            line-height: 1;
+            letter-spacing: -0.5px;
+            max-width: 100%;
+        }
+
+        .main-title .yellow-text {
+            font-size: var(--yellow-size);
+            color: var(--primary-yellow);
+            display: block;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            line-height: 1;
+            letter-spacing: -1px;
+            max-width: 100%;
+        }
+
+        .description {
+            font-size: var(--description-size);
+            line-height: 1.7;
+            font-weight: 400;
+            max-width: 520px;
+            width: 100%;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-align: left;
+            opacity: 0.95;
+            word-wrap: break-word;
+        }
+
+        /* Actions */
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.8rem, 2vw, 1.2rem);
+            margin-top: clamp(0.5rem, 2vw, 1rem);
+            width: 100%;
+            max-width: 500px;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .actions {
+                flex-direction: row;
+                max-width: none;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: clamp(0.75rem, 2vw, 0.9rem) clamp(1.2rem, 3vw, 1.8rem);
+            font-size: var(--btn-size);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            width: 100%;
+            cursor: pointer;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .btn {
+                width: auto;
+            }
+        }
+
+        .btn-primary {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(255, 214, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #e6c200;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 214, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--text-white);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            border-color: var(--primary-yellow);
+            color: var(--primary-yellow);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+            width: clamp(18px, 3vw, 22px);
+            height: clamp(18px, 3vw, 22px);
+        }
+
+        /* =========================================
+           NOVAS SEÇÕES: BIO, MISSÃO, PROPOSTAS, TIMELINE
+           ========================================= */
+        
+        .content-sections {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            margin-top: clamp(2rem, 5vw, 3.5rem);
+            box-sizing: border-box;
+        }
+
+        .glass-panel {
+            background: var(--footer-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: clamp(10px, 2vw, 16px);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .section-title {
+            color: var(--primary-yellow);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 0.5px;
+            max-width: 100%;
+        }
+
+        .text-content p {
+            font-size: var(--description-size);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 100%;
+        }
+
+        .text-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .text-content h3 {
+            color: var(--text-white);
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 700;
+            max-width: 100%;
+        }
+
+        .emoji-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .emoji-list li {
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-yellow);
+            line-height: 1.4;
+            box-sizing: border-box;
+            word-wrap: break-word;
+        }
+
+        .mission-box {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 140, 74, 0.2) 0%, rgba(9, 20, 42, 0.8) 100%);
+            border-color: rgba(0, 140, 74, 0.4);
+        }
+        
+        .mission-box h3 {
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            text-transform: uppercase;
+            max-width: 100%;
+        }
+
+        /* GRID DE PROPOSTAS */
+        .category-title {
+            background: rgba(255, 214, 0, 0.1);
+            color: var(--primary-yellow);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2.5rem 0 1.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-align: center;
+            border: 1px solid rgba(255, 214, 0, 0.2);
+            text-transform: uppercase;
+            max-width: 100%;
+            box-sizing: border-box;
+            word-wrap: break-word;
+        }
+
+        .category-title:first-child {
+            margin-top: 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .prop-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+        
+        .prop-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-yellow);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .prop-card h4 {
+            color: var(--primary-yellow);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+            font-weight: 700;
+            max-width: 100%;
+        }
+
+        .prop-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .prop-card ul li {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.85);
+            position: relative;
+            padding-left: 1.2rem;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .prop-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-yellow);
+            font-weight: bold;
+        }
+
+        .prop-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.85);
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        /* TIMELINE */
+        .timeline-wrapper {
+            max-width: 800px;
+            width: 100%;
+            margin: 1.5rem auto 0;
+            box-sizing: border-box;
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 3px solid rgba(255, 214, 0, 0.3);
+            padding-left: 2rem;
+            margin-left: 10px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            max-width: 100%;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.7rem;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            background: var(--primary-yellow);
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 214, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.3);
+            background: var(--icon-green);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            max-width: 100%;
+        }
+
+        .timeline-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        /* NOVOS CARDS / BALÕES */
+        .cards-section {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.2rem, 3vw, 1.8rem);
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .cards-section {
+                flex-direction: row;
+                gap: clamp(1.5rem, 3vw, 2rem);
+            }
+        }
+
+        .card {
+            flex: 1;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: clamp(16px, 3vw, 20px);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-white);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 214, 0, 0.1) 0%, rgba(0, 140, 74, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 214, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 214, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: clamp(10px, 2vw, 14px);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 767px) {
+            .card-image {
+                aspect-ratio: 1080 / 1440;
+                max-height: 70vh;
+            }
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.5rem, 1.5vw, 0.8rem);
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+        }
+
+        .card-title {
+            font-size: var(--card-title);
+            font-weight: 800;
+            color: var(--primary-yellow);
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .card-subtitle {
+            font-size: var(--card-subtitle);
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            font-weight: 400;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .card-arrow {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+            font-size: var(--card-subtitle);
+            font-weight: 700;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            transition: gap 0.3s ease;
+            max-width: 100%;
+        }
+
+        .card:hover .card-arrow {
+            gap: 0.8rem;
+        }
+
+        .card-arrow svg {
+            width: clamp(16px, 2vw, 20px);
+            height: clamp(16px, 2vw, 20px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-arrow svg {
+            transform: translateX(5px);
+        }
+
+        /* Ajustes para telas muito pequenas */
+        @media (max-width: 360px) {
+            .main-title { gap: 0.1rem; }
+            .main-title .white-text { font-size: 1.8rem; }
+            .main-title .yellow-text { font-size: 2.8rem; }
+            .description { font-size: 0.85rem; }
+            .btn { font-size: 0.75rem; padding: 0.7rem 1rem; }
+            .card { padding: 1.2rem; }
+            .text-section { margin-top: -0.3rem; }
+            .card-image { max-height: 60vh; }
+            .emoji-list { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Ajustes para tablets */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .content-wrapper { flex-direction: column; }
+            .image-section { max-width: 500px; margin: 0 auto; }
+            .text-section { max-width: 600px; margin: 0 auto; margin-top: -0.5rem; }
+            .cards-section { flex-direction: column; }
+            .card-image { aspect-ratio: 16 / 10; max-height: none; }
+        }
+
+        /* Suporte para telas grandes */
+        @media (min-width: 1400px) {
+            .container { max-width: 1400px; }
+            .main-title { gap: 0.4rem; }
+            .main-title .white-text { font-size: 4.5rem; }
+            .main-title .yellow-text { font-size: 8rem; }
+            .text-section { margin-top: -0.75rem; }
+        }
+
+        /* Orientação paisagem em mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .content-wrapper { flex-direction: row; align-items: center; gap: 1rem; }
+            .candidates-photo { max-height: 45vh; }
+            .main-title { gap: 0.1rem; }
+            .cards-section { flex-direction: row; }
+            .text-section { margin-top: -0.5rem; }
+            .card-image { aspect-ratio: 16 / 10; max-height: 50vh; }
+        }
+
+        /* =========================================
+           RODAPÉ (SITE FOOTER) 
+           ========================================= */
+        .site-footer {
+            background-color: var(--primary-blue);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: clamp(2rem, 5vw, 3rem) var(--container-padding);
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-logo img {
+            height: clamp(40px, 8vw, 50px);
+            width: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-logo img:hover { opacity: 1; }
+
+        .footer-social { display: flex; gap: 1rem; }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-white);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            color: rgba(255, 255, 255, 0.6);
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <main class="container">
+            <header class="top-header">
+                <img src="https://i.ibb.co/qLDD1DgV/LOGO-002.png" alt="Logotipo" class="top-logo">
+                <div class="header-text">
+                    <span class="highlight">PRÉ-CANDIDATO</span> A DEPUTADO ESTADUAL
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- IMAGEM EM CIMA (MOBILE) / LADO DIREITO (DESKTOP) -->
+                <div class="image-section">
+                    <img src="https://i.ibb.co/KjcYyzZv/NOVA123.png" alt="Coronel Lino e Valmir" class="candidates-photo">
+                </div>
+
+                <!-- TEXTO ABAIXO (MOBILE) / LADO ESQUERDO (DESKTOP) -->
+                <div class="text-section">
+                    <h1 class="main-title">
+                        <span class="white-text">JUNTOS POR UM</span>
+                        <span class="yellow-text">SERGIPE</span>
+                        <span class="white-text">MAIS FORTE!</span>
+                    </h1>
+                    
+                    <p class="description">
+                        É hora de fazer a diferença. Com coragem, experiência<br>
+                        e compromisso, vamos construir um Sergipe mais justo,<br>
+                        seguro e com oportunidades para todos.
+                    </p>
+
+                    <div class="actions">
+                        <a href="#" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            CONHEÇA NOSSAS PROPOSTAS
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                            ASSISTA AO VÍDEO
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CARDS MOVIMENTADOS PARA CIMA, ABAIXO DO BOTÃO -->
+            <section class="cards-section">
+                <!-- Card 1 -->
+                <a href="#" class="card">
+                    <div class="card-image">
+                        <img src="https://i.ibb.co/qMvD3jTf/724068062-1216780108176834-3029478475310388558-n-1.jpg" alt="Imagem do Card 1">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Título do Card 1</h3>
+                        <p class="card-subtitle">Subtítulo descritivo do primeiro card. Aqui vai uma breve descrição.</p>
+                    </div>
+                    <div class="card-arrow">
+                        SAIBA MAIS
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="#" class="card">
+                    <div class="card-image">
+                        <img src="https://i.ibb.co/gMX8g0x9/asold-asd.jpg" alt="Imagem do Card 2">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Título do Card 2</h3>
+                        <p class="card-subtitle">Subtítulo descritivo do segundo card. Aqui vai uma breve descrição.</p>
+                    </div>
+                    <div class="card-arrow">
+                        SAIBA MAIS
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="https://www.instagram.com/p/DZsOwB7BuCD/" class="card" target="_blank" rel="noopener noreferrer">
+                    <div class="card-image">
+                        <img src="https://i.ibb.co/WWqnh9Kp/l-l-l.jpg" alt="Imagem do Card 3">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Título do Card 3</h3>
+                        <p class="card-subtitle">Subtítulo descritivo do terceiro card. Aqui vai uma breve descrição.</p>
+                    </div>
+                    <div class="card-arrow">
+                        SAIBA MAIS
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </div>
+                </a>
+            </section>
+
+            <!-- NOVAS SEÇÕES: INFORMAÇÕES E PROPOSTAS (AGORA ABAIXO DOS CARDS) -->
+            <div class="content-sections">
+                
+                <!-- Biografia e Foco -->
+                <section class="glass-panel text-content">
+                    <p>Com anos de dedicação à Polícia Militar de Sergipe, o Tenente-Coronel Lino conhece de perto a realidade dos profissionais da segurança pública.</p>
+                    <p>Sua trajetória foi construída com trabalho, disciplina, liderança e compromisso com a população sergipana.</p>
+                    
+                    <h3>Hoje coloca essa experiência a serviço de Sergipe, defendendo propostas voltadas para:</h3>
+                    <ul class="emoji-list">
+                        <li>👮 Valorização dos profissionais da segurança</li>
+                        <li>👨‍👩‍👧‍👦 Proteção das famílias</li>
+                        <li>📈 Melhor gestão dos recursos públicos</li>
+                        <li>🤝 Respeito aos servidores</li>
+                        <li><!-- Ícone da bandeira do Brasil no lugar do emoji 🇧🇷 -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="margin-right: 8px; flex-shrink: 0;">
+                                <rect width="24" height="24" rx="2" fill="#009B3A"/>
+                                <polygon points="12,3 20,12 12,21 4,12" fill="#FEDF00"/>
+                                <circle cx="12" cy="12" r="4.5" fill="#002776"/>
+                                <path d="M12 8.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z" fill="#FFFFFF"/>
+                                <path d="M11.2 10.2l.4-1 .4 1h1l-.8.6.3 1-.9-.7-.9.7.3-1-.8-.6h1zM13.8 11.2l.3-.9.3.9h.9l-.7.5.3.9-.7-.5-.7.5.3-.9-.7-.5h.9zM12 12.7l.4.3-.1.5-.3-.2-.3.2-.1-.5.4-.3zM10.2 11.2l.3-.9.3.9h.9l-.7.5.3.9-.7-.5-.7.5.3-.9-.7-.5h.9z" fill="#009B3A"/>
+                                <rect width="24" height="24" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
+                            </svg>
+                            Defesa da sociedade sergipana
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Nossa Missão -->
+                <section class="glass-panel mission-box text-content">
+                    <h2>Nossa Missão</h2>
+                    <h3>Trabalhar por uma Segurança Pública mais valorizada.</h3>
+                    <p>Nosso compromisso é defender melhores condições de trabalho, valorização profissional e políticas públicas que fortaleçam todos os servidores da segurança pública de Sergipe.</p>
+                </section>
+
+                <!-- Principais Propostas -->
+                <section class="glass-panel">
+                    <h2 class="section-title">Principais Propostas</h2>
+                    
+                    <!-- Categoria: PM e BM -->
+                    <div class="category-title">Valorização dos Policiais Militares e Bombeiros</div>
+                    <div class="cards-grid">
+                        <div class="prop-card">
+                            <h4>Promoções mais justas</h4>
+                            <ul>
+                                <li>Redução de 50% do interstício para promoções.</li>
+                                <li>Promoções independentes de vagas na passagem para a reserva.</li>
+                                <li>Aumento das promoções por merecimento de 25% para 50%.</li>
+                                <li>Maior fluidez na carreira militar.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prop-card">
+                            <h4>Escalonamento Salarial</h4>
+                            <p>Proposta de recomposição salarial escalonada para reduzir perdas acumuladas ao longo dos anos.</p>
+                            <br>
+                            <p><strong>Objetivos:</strong></p>
+                            <ul style="margin-top: 5px;">
+                                <li>✔ Valorização da carreira</li>
+                                <li>✔ Recuperação do poder de compra</li>
+                                <li>✔ Planejamento financeiro responsável</li>
+                            </ul>
+                        </div>
+
+                        <div class="prop-card">
+                            <h4>Auxílio Saúde e Alimentação</h4>
+                            <ul>
+                                <li>Defesa da criação e ampliação dos benefícios para servidores ativos, inativos e pensionistas.</li>
+                                <li>Proposta de implantação gradual dos auxílios.</li>
+                                <li>Busca que esses benefícios tenham natureza indenizatória.</li>
+                            </ul>
+                        </div>
+
+                        <div class="prop-card">
+                            <h4>Garantias e Direitos</h4>
+                            <ul>
+                                <li><strong>Armamento na Reserva:</strong> Garantir que policiais e bombeiros possam permanecer com armamento e munições ao passar para a reserva remunerada.</li>
+                                <li><strong>Licença Especial:</strong> Defesa do pagamento integral da licença especial.</li>
+                                <li><strong>Abono Permanência:</strong> Regulamentação do direito ao abono para os militares estaduais.</li>
+                            </ul>
+                        </div>
+
+                        <div class="prop-card">
+                            <h4>Aspecto Financeiro e Previdenciário</h4>
+                            <ul>
+                                <li><strong>Reposição das Perdas Inflacionárias:</strong> Trabalhar pela recuperação das perdas salariais acumuladas ao longo dos últimos anos.</li>
+                                <li><strong>Desconto Previdenciário:</strong> Defesa de mudanças no modelo de desconto previdenciário para aposentados e pensionistas.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Outras Categorias -->
+                    <div class="category-title">Demais Forças de Segurança</div>
+                    <div class="cards-grid">
+                        <div class="prop-card">
+                            <h4>Policiais Civis</h4>
+                            <ul>
+                                <li>Ampliação do auxílio saúde.</li>
+                                <li>Ampliação do auxílio alimentação.</li>
+                                <li>Benefícios para ativos, aposentados e pensionistas.</li>
+                                <li>Armamento na aposentadoria, conforme legislação.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prop-card">
+                            <h4>Policiais Penais</h4>
+                            <ul>
+                                <li>Defesa do subsídio salarial.</li>
+                                <li>Auxílio saúde.</li>
+                                <li>Auxílio alimentação.</li>
+                                <li>Armamento na aposentadoria.</li>
+                                <li>Valorização da categoria.</li>
+                            </ul>
+                        </div>
+
+                        <div class="prop-card">
+                            <h4>Peritos, IML e COGERP</h4>
+                            <ul>
+                                <li>Criação do subsídio.</li>
+                                <li>Auxílio saúde e alimentação.</li>
+                                <li>Valorização dos profissionais.</li>
+                                <li>Reconhecimento das carreiras.</li>
+                            </ul>
+                        </div>
+
+                        <div class="prop-card">
+                            <h4>BESP (Batalhão Especial)</h4>
+                            <ul>
+                                <li>Promoções justas.</li>
+                                <li>Adicional de convocação.</li>
+                                <li>Pagamento da licença especial.</li>
+                                <li>Auxílio creche e Auxílio educação.</li>
+                                <li>Auxílio moradia.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Compromissos -->
+                <section class="glass-panel text-content">
+                    <h2 class="section-title">Nossos Compromissos</h2>
+                    <p style="text-align: center; margin-bottom: 1.5rem;">O compromisso é trabalhar por:</p>
+                    <ul class="emoji-list check-list">
+                        <li>✔ Valorização profissional</li>
+                        <li>✔ Segurança para a população</li>
+                        <li>✔ Respeito às forças de segurança</li>
+                        <li>✔ Defesa das famílias sergipanas</li>
+                        <li>✔ Desenvolvimento de Sergipe</li>
+                    </ul>
+                </section>
+
+                <!-- Linha do Tempo -->
+                <section class="glass-panel text-content">
+                    <h2 class="section-title">Linha do Tempo</h2>
+                    <div class="timeline-wrapper">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Início da carreira</h3>
+                                    <p>Ingresso na Polícia Militar de Sergipe.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Anos de serviço</h3>
+                                    <p>Experiência em diversas funções de comando.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Tenente-Coronel</h3>
+                                    <p>Liderança e dedicação à segurança pública.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Pré-candidato a Deputado Estadual</h3>
+                                    <p>Compromisso de representar quem trabalha e vive a realidade de Sergipe.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- RODAPÉ (SITE FOOTER) -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://i.ibb.co/qLDD1DgV/LOGO-002.png" alt="Logotipo Coronel Lino">
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Coronel Lino - Pré-candidato. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
